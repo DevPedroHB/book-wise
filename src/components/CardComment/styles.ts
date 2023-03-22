@@ -12,6 +12,7 @@ export const CardCommentComponent = styled("div", {
 
 export const CardHeader = styled("div", {
   display: "flex",
+  flexWrap: "wrap",
   gap: "$4",
 });
 
@@ -20,6 +21,7 @@ export const CardHeaderUser = styled("div", {
 
   h4: {
     fontWeight: "$regular",
+    whiteSpace: "nowrap",
   },
 
   span: {
@@ -29,6 +31,7 @@ export const CardHeaderUser = styled("div", {
 });
 
 export const CardHeaderRating = styled("div", {
+  margin: "0 auto",
   display: "flex",
   gap: "$1",
 
@@ -72,8 +75,13 @@ export const CardBody = styled("div", {
 
   img: {
     width: "auto",
-    height: "100%",
+    height: "9.5rem",
     objectFit: "cover",
+    borderRadius: "4px",
+  },
+
+  "@bp2": {
+    flexDirection: "column",
   },
 });
 
@@ -85,11 +93,21 @@ export const CardDetails = styled("div", {
   div: {
     h4: {
       lineHeight: "$short",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      display: "-webkit-box",
+      "-webkit-box-orient": "vertical",
+      "-webkit-line-clamp": 1,
     },
 
     span: {
       color: "$gray400",
       fontSize: "$sm",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      display: "-webkit-box",
+      "-webkit-box-orient": "vertical",
+      "-webkit-line-clamp": 1,
     },
   },
 

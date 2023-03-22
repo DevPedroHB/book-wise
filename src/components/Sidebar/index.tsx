@@ -1,41 +1,63 @@
+import logoResponsiveImg from "@/assets/images/logo-responsive.png";
 import logoImg from "@/assets/images/logo.png";
 import Image from "next/image";
-import { Binoculars, ChartLineUp, SignIn, User } from "phosphor-react";
+import {
+  Binoculars,
+  CaretRight,
+  ChartLineUp,
+  SignIn,
+  User,
+} from "phosphor-react";
+import { useState } from "react";
 import { SidebarLink } from "../SidebarLink";
 import {
   AvatarFallback,
   AvatarImage,
   AvatarRoot,
+  SidebarButtonToggle,
   SidebarContainer,
   SidebarLogin,
   SidebarMenu,
 } from "./styles";
 
+export const isAuthenticated = true;
+
 export function Sidebar() {
-  const authenticated = false;
+  const [toggle, setToggle] = useState(false);
 
   return (
-    <SidebarContainer>
-      <Image src={logoImg} alt="Logotipo BookWise" />
-      <SidebarMenu>
+    <SidebarContainer toggle={toggle}>
+      <SidebarButtonToggle onClick={() => setToggle(!toggle)} toggle={toggle}>
+        <CaretRight size={16} weight="bold" />
+      </SidebarButtonToggle>
+      {toggle ? (
+        <Image src={logoImg} alt="Logotipo BookWise" />
+      ) : (
+        <Image src={logoResponsiveImg} alt="Logotipo BookWise" />
+      )}
+      <SidebarMenu toggle={toggle}>
         <SidebarLink href="/">
           <ChartLineUp size={24} />
-          Início
+          <span>Início</span>
         </SidebarLink>
         <SidebarLink href="/explore">
           <Binoculars size={24} />
-          Explorar
+          <span>Explorar</span>
         </SidebarLink>
-        {authenticated && (
+        {isAuthenticated && (
           <SidebarLink href="/profile">
             <User size={24} />
-            Perfil
+            <span>Perfil</span>
           </SidebarLink>
         )}
       </SidebarMenu>
-      <SidebarLogin href="/login" authenticated={authenticated}>
-        {authenticated ? (
-          <>
+      <SidebarLogin
+        href="/login"
+        authenticated={isAuthenticated}
+        toggle={toggle}
+      >
+        {isAuthenticated ? (
+          <div>
             <AvatarRoot>
               <AvatarImage
                 src="https://github.com/DevPedroHB.png"
@@ -45,10 +67,10 @@ export function Sidebar() {
                 <User />
               </AvatarFallback>
             </AvatarRoot>
-            PedroHB
-          </>
+            <span>Pedro</span>
+          </div>
         ) : (
-          "Fazer login"
+          <span>Fazer login</span>
         )}
         <SignIn size={20} />
       </SidebarLogin>

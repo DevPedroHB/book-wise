@@ -9,10 +9,15 @@ export const HomeContent = styled("div", {
   height: "100vh",
   padding: "4.5rem 6rem",
   overflowY: "scroll",
+
+  "@bp2": {
+    padding: "1.25rem 1.25rem 1.25rem 7.25rem",
+  },
 });
 
 export const HomeWrapper = styled("div", {
   display: "flex",
+  flexWrap: "wrap",
   gap: "4rem",
 });
 
@@ -33,4 +38,12 @@ export const CardGroup = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "$3",
+
+  variants: {
+    yourLastRead: {
+      true: {
+        marginBottom: "2.125rem",
+      },
+    },
+  },
 });

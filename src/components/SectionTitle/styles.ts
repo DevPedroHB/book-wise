@@ -3,6 +3,7 @@ import { styled } from "@/styles/stitches.config";
 export const SectionTitleComponent = styled("div", {
   fontSize: "$sm",
   display: "flex",
+  flexWrap: "wrap",
   justifyContent: "space-between",
   alignItems: "center",
   gap: "$4",

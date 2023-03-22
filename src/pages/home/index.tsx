@@ -2,8 +2,9 @@ import { BookCard } from "@/components/BookCard";
 import { CardComment } from "@/components/CardComment";
 import { PageTitle } from "@/components/PageTitle";
 import { SectionTitle } from "@/components/SectionTitle";
-import { Sidebar } from "@/components/Sidebar";
+import { isAuthenticated, Sidebar } from "@/components/Sidebar";
 import { ChartLineUp } from "phosphor-react";
+import { LastReadCard } from "./components/LastReadCard";
 import {
   CardGroup,
   HomeContainer,
@@ -24,6 +25,14 @@ export default function Home() {
         </PageTitle>
         <HomeWrapper>
           <MyBooks>
+            {isAuthenticated && (
+              <>
+                <SectionTitle title="Sua última leitura" href="/profile" />
+                <CardGroup yourLastRead>
+                  <LastReadCard />
+                </CardGroup>
+              </>
+            )}
             <SectionTitle title="Avaliações mais recentes" />
             <CardGroup>
               <CardComment />
