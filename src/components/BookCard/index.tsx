@@ -1,15 +1,10 @@
 import Image from "next/image";
-import { Star } from "phosphor-react";
-import {
-  BookCardContainer,
-  BookCardDetails,
-  BookCardRating,
-  BookCardTitle,
-} from "./styles";
+import { Rating } from "../Rating";
+import { BookCardComponent, BookCardDetails, BookCardTitle } from "./styles";
 
 export function BookCard() {
   return (
-    <BookCardContainer>
+    <BookCardComponent>
       <Image
         src="/images/codigo-limpo.png"
         width={64}
@@ -21,14 +16,8 @@ export function BookCard() {
           <h4>A revolução dos bichos</h4>
           <span>George Orwell</span>
         </BookCardTitle>
-        <BookCardRating>
-          <Star size={16} weight="fill" />
-          <Star size={16} weight="fill" />
-          <Star size={16} weight="fill" />
-          <Star size={16} weight="fill" />
-          <Star size={16} weight="thin" />
-        </BookCardRating>
+        <Rating starSize={16} />
       </BookCardDetails>
-    </BookCardContainer>
+    </BookCardComponent>
   );
 }

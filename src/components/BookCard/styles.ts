@@ -1,6 +1,6 @@
 import { styled } from "@/styles/stitches.config";
 
-export const BookCardContainer = styled("div", {
+export const BookCardComponent = styled("div", {
   padding: "$4 $5",
   backgroundColor: "$gray700",
   borderRadius: "8px",
@@ -39,14 +39,5 @@ export const BookCardTitle = styled("div", {
     display: "-webkit-box",
     "-webkit-box-orient": "vertical",
     "-webkit-line-clamp": 1,
-  },
-});
-
-export const BookCardRating = styled("div", {
-  display: "flex",
-  gap: "$1",
-
-  svg: {
-    color: "$purple100",
   },
 });

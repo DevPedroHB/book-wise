@@ -1,6 +1,6 @@
 import { styled } from "@/styles/stitches.config";
 
-export const LastReadCardContainer = styled("div", {
+export const LastReadCardComponent = styled("div", {
   padding: "$5 $6",
   backgroundColor: "$gray600",
   borderRadius: "8px",

@@ -1,13 +1,22 @@
 import { styled } from "@/styles/stitches.config";
 
-export const PageTitleComponent = styled("h2", {
+export const PageTitleComponent = styled("div", {
   marginBottom: "$10",
-  fontWeight: "$bold",
-  fontSize: "$2xl",
-  lineHeight: "$short",
   display: "flex",
+  justifyContent: "space-between",
   alignItems: "center",
+  flexWrap: "wrap",
   gap: "$3",
+
+  h2: {
+    fontWeight: "$bold",
+    fontSize: "$2xl",
+    lineHeight: "$short",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: "$3",
+  },
 
   svg: {
     color: "$green100",

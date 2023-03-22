@@ -20,8 +20,10 @@ export default function Home() {
       <Sidebar />
       <HomeContent>
         <PageTitle>
-          <ChartLineUp size={32} />
-          Início
+          <h2>
+            <ChartLineUp size={32} />
+            Início
+          </h2>
         </PageTitle>
         <HomeWrapper>
           <MyBooks>
@@ -35,21 +37,17 @@ export default function Home() {
             )}
             <SectionTitle title="Avaliações mais recentes" />
             <CardGroup>
-              <CardComment />
-              <CardComment />
-              <CardComment />
-              <CardComment />
-              <CardComment />
+              {new Array(5).fill(true).map((_, i) => (
+                <CardComment key={i} />
+              ))}
             </CardGroup>
           </MyBooks>
           <TrendingBooks>
             <SectionTitle title="Livros populares" href="/explore" />
             <CardGroup>
-              <BookCard />
-              <BookCard />
-              <BookCard />
-              <BookCard />
-              <BookCard />
+              {new Array(10).fill(true).map((_, i) => (
+                <BookCard key={i} />
+              ))}
             </CardGroup>
           </TrendingBooks>
         </HomeWrapper>

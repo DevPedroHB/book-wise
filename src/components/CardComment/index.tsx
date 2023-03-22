@@ -1,15 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Star, User } from "phosphor-react";
+import { Avatar } from "../Avatar";
+import { Rating } from "../Rating";
 import {
-  AvatarFallback,
-  AvatarImage,
-  AvatarRoot,
   CardBody,
   CardCommentComponent,
   CardDetails,
   CardHeader,
-  CardHeaderRating,
   CardHeaderUser,
 } from "./styles";
 
@@ -17,23 +14,16 @@ export function CardComment() {
   return (
     <CardCommentComponent>
       <CardHeader>
-        <AvatarRoot>
-          <AvatarImage src="https://github.com/DevPedroHB.png" alt="" />
-          <AvatarFallback>
-            <User />
-          </AvatarFallback>
-        </AvatarRoot>
+        <Avatar
+          avatarSize={40}
+          imgUrl="https://github.com/DevPedroHB.png"
+          altText="Avatar de DevPedroHB"
+        />
         <CardHeaderUser>
           <h4>Pedro Henrique</h4>
           <span>Hoje</span>
         </CardHeaderUser>
-        <CardHeaderRating>
-          <Star size={16} weight="fill" />
-          <Star size={16} weight="fill" />
-          <Star size={16} weight="fill" />
-          <Star size={16} weight="fill" />
-          <Star size={16} weight="thin" />
-        </CardHeaderRating>
+        <Rating starSize={16} marginAuto />
       </CardHeader>
       <CardBody>
         <Image

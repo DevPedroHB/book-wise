@@ -9,13 +9,11 @@ import {
   User,
 } from "phosphor-react";
 import { useState } from "react";
+import { Avatar } from "../Avatar";
 import { SidebarLink } from "../SidebarLink";
 import {
-  AvatarFallback,
-  AvatarImage,
-  AvatarRoot,
   SidebarButtonToggle,
-  SidebarContainer,
+  SidebarComponent,
   SidebarLogin,
   SidebarMenu,
 } from "./styles";
@@ -26,7 +24,7 @@ export function Sidebar() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <SidebarContainer toggle={toggle}>
+    <SidebarComponent toggle={toggle}>
       <SidebarButtonToggle onClick={() => setToggle(!toggle)} toggle={toggle}>
         <CaretRight size={16} weight="bold" />
       </SidebarButtonToggle>
@@ -57,23 +55,18 @@ export function Sidebar() {
         toggle={toggle}
       >
         {isAuthenticated ? (
-          <div>
-            <AvatarRoot>
-              <AvatarImage
-                src="https://github.com/DevPedroHB.png"
-                alt="Avatar"
-              />
-              <AvatarFallback>
-                <User />
-              </AvatarFallback>
-            </AvatarRoot>
-            <span>Pedro</span>
-          </div>
+          <>
+            <Avatar
+              avatarSize={32}
+              imgUrl="https://github.com/DevPedroHB.png"
+            />
+            <p>Pedro Henrique Bérgamo</p>
+          </>
         ) : (
           <span>Fazer login</span>
         )}
         <SignIn size={20} />
       </SidebarLogin>
-    </SidebarContainer>
+    </SidebarComponent>
   );
 }

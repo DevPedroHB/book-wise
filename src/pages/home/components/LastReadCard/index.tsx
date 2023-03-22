@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Star } from "phosphor-react";
 import {
-  LastReadCardContainer,
+  LastReadCardComponent,
   LastReadDetails,
   LastReadMainInfo,
   LastReadMyInfo,
@@ -10,7 +10,7 @@ import {
 
 export function LastReadCard() {
   return (
-    <LastReadCardContainer>
+    <LastReadCardComponent>
       <Image
         src="/images/codigo-limpo.png"
         width={108}
@@ -39,6 +39,6 @@ export function LastReadCard() {
           Penatibus id vestibulum imperdiet a at imperdiet lectu...
         </p>
       </LastReadDetails>
-    </LastReadCardContainer>
+    </LastReadCardComponent>
   );
 }
