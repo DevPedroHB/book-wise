@@ -4,7 +4,7 @@ export const ExploreContainer = styled("main", {
   display: "flex",
 });
 
-export const ExploreContent = styled("main", {
+export const ExploreContent = styled("div", {
   flex: 1,
   height: "100vh",
   padding: "4.5rem 6rem",
@@ -13,12 +13,6 @@ export const ExploreContent = styled("main", {
   "@bp2": {
     padding: "1.25rem 1.25rem 1.25rem 7.25rem",
   },
-});
-
-export const ExploreWrapper = styled("div", {
-  display: "flex",
-  flexWrap: "wrap",
-  gap: "4rem",
 });
 
 export const ExploreFormSearch = styled("form", {

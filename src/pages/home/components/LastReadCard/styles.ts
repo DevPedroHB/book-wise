@@ -3,15 +3,21 @@ import { styled } from "@/styles/stitches.config";
 export const LastReadCardComponent = styled("div", {
   padding: "$5 $6",
   backgroundColor: "$gray600",
+  border: "2px solid transparent",
   borderRadius: "8px",
   display: "flex",
   gap: "$6",
+  transition: "border-color .2s",
 
   img: {
     width: "auto",
     height: "9.5rem",
     objectFit: "cover",
     borderRadius: "4px",
+  },
+
+  "&:hover": {
+    borderColor: "$gray500",
   },
 
   "@bp2": {

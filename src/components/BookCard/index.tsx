@@ -1,10 +1,23 @@
+import { VariantProps } from "@stitches/react";
 import Image from "next/image";
 import { Rating } from "../Rating";
-import { BookCardComponent, BookCardDetails, BookCardTitle } from "./styles";
+import {
+  BookCardComponent,
+  BookCardDetails,
+  BookCardTag,
+  BookCardTitle,
+} from "./styles";
 
-export function BookCard() {
+interface IBookCard extends VariantProps<typeof BookCardComponent> {
+  read?: boolean;
+}
+
+export function BookCard({ read, ...props }: IBookCard) {
   return (
-    <BookCardComponent>
+    <BookCardComponent {...props}>
+      <BookCardTag read={read}>
+        <small>Lido</small>
+      </BookCardTag>
       <Image
         src="/images/codigo-limpo.png"
         width={64}

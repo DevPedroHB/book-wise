@@ -1,6 +1,7 @@
 import { PageTitle } from "@/components/PageTitle";
 import { Sidebar } from "@/components/Sidebar";
 import { Binoculars, MagnifyingGlass } from "phosphor-react";
+import { Books } from "./components/Books";
 import { Categories } from "./components/Categories";
 import { ExploreContainer, ExploreContent, ExploreFormSearch } from "./styles";
 
@@ -22,6 +23,7 @@ export default function Explore() {
           </ExploreFormSearch>
         </PageTitle>
         <Categories />
+        <Books />
       </ExploreContent>
     </ExploreContainer>
   );

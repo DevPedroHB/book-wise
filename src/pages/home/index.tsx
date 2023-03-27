@@ -46,7 +46,7 @@ export default function Home() {
             <SectionTitle title="Livros populares" href="/explore" />
             <CardGroup>
               {new Array(10).fill(true).map((_, i) => (
-                <BookCard key={i} />
+                <BookCard key={i} variant="type-1" />
               ))}
             </CardGroup>
           </TrendingBooks>

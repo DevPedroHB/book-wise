@@ -1,6 +1,6 @@
 import { styled } from "@/styles/stitches.config";
 
-export const PageTitleComponent = styled("div", {
+export const PageTitleComponent = styled("section", {
   marginBottom: "$10",
   display: "flex",
   justifyContent: "space-between",
