@@ -8,6 +8,7 @@ export const BookCardComponent = styled("div", {
   borderRadius: "8px",
   display: "flex",
   gap: "$5",
+  cursor: "pointer",
   position: "relative",
   overflow: "hidden",
   transition: "outline-color .2s",

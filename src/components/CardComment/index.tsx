@@ -23,7 +23,7 @@ export function CardComment() {
           <h4>Pedro Henrique</h4>
           <span>Hoje</span>
         </CardHeaderUser>
-        <Rating starSize={16} marginAuto />
+        <Rating starSize={16} />
       </CardHeader>
       <CardBody>
         <Image

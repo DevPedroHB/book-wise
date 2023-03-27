@@ -9,9 +9,9 @@ export const RatingComponent = styled("div", {
   },
 
   variants: {
-    marginAuto: {
+    marginLeft: {
       true: {
-        margin: "0 auto",
+        marginLeft: "auto",
       },
     },
   },
