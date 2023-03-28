@@ -47,7 +47,7 @@ export const Options = styled("div", {
   gap: "$4",
 
   button: {
-    padding: "1.25rem 1.5rem",
+    padding: "$5 $6",
     backgroundColor: "$gray600",
     color: "$gray200",
     border: 0,

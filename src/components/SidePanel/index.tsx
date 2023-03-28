@@ -1,16 +1,17 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { BookmarkSimple, BookOpen, X } from "phosphor-react";
+import { LoginModal } from "../LoginModal";
 import { Rating } from "../Rating";
 import { SidePanelCardComment } from "../SidePanelCardComment";
 import {
-  DialogClose,
-  DialogContent,
-  DialogOverlay,
-  DialogTitle,
   SidePanelAbout,
   SidePanelBook,
   SidePanelComments,
+  SidePanelDialogClose,
+  SidePanelDialogContent,
+  SidePanelDialogOverlay,
+  SidePanelDialogTitle,
   SidePanelInfo,
   SidePanelTitle,
 } from "./styles";
@@ -18,9 +19,9 @@ import {
 export function SidePanel() {
   return (
     <Dialog.Portal>
-      <DialogOverlay />
-      <DialogContent>
-        <DialogTitle>
+      <SidePanelDialogOverlay />
+      <SidePanelDialogContent>
+        <SidePanelDialogTitle>
           <SidePanelBook>
             <Image
               src="/images/codigo-limpo.png"
@@ -55,20 +56,25 @@ export function SidePanel() {
               </div>
             </div>
           </SidePanelAbout>
-        </DialogTitle>
-        <DialogClose>
+        </SidePanelDialogTitle>
+        <SidePanelDialogClose>
           <X size={24} weight="bold" />
-        </DialogClose>
+        </SidePanelDialogClose>
         <SidePanelTitle>
           <span>Avaliações</span>
-          <button>Avaliar</button>
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <button>Avaliar</button>
+            </Dialog.Trigger>
+            <LoginModal />
+          </Dialog.Root>
         </SidePanelTitle>
         <SidePanelComments>
           {new Array(3).fill(true).map((_, i) => (
             <SidePanelCardComment key={i} />
           ))}
         </SidePanelComments>
-      </DialogContent>
+      </SidePanelDialogContent>
     </Dialog.Portal>
   );
 }

@@ -1,7 +1,7 @@
 import { styled } from "@/styles/stitches.config";
 import * as Dialog from "@radix-ui/react-dialog";
 
-export const DialogOverlay = styled(Dialog.Overlay, {
+export const SidePanelDialogOverlay = styled(Dialog.Overlay, {
   position: "fixed",
   width: "100vw",
   height: "100vh",
@@ -10,7 +10,7 @@ export const DialogOverlay = styled(Dialog.Overlay, {
   zIndex: 1,
 });
 
-export const DialogTitle = styled(Dialog.Title, {
+export const SidePanelDialogTitle = styled(Dialog.Title, {
   padding: "$6 $8 $4",
   backgroundColor: "$gray700",
   borderRadius: "10px",
@@ -84,7 +84,7 @@ export const SidePanelAbout = styled("div", {
   },
 });
 
-export const DialogClose = styled(Dialog.Close, {
+export const SidePanelDialogClose = styled(Dialog.Close, {
   position: "absolute",
   top: "1.5rem",
   right: "3rem",
@@ -104,7 +104,7 @@ export const DialogClose = styled(Dialog.Close, {
   },
 });
 
-export const DialogContent = styled(Dialog.Content, {
+export const SidePanelDialogContent = styled(Dialog.Content, {
   position: "fixed",
   top: 0,
   right: 0,
