@@ -1,5 +1,6 @@
 import logoResponsiveImg from "@/assets/images/logo-responsive.png";
 import logoImg from "@/assets/images/logo.png";
+import { randomBytes } from "crypto";
 import Image from "next/image";
 import {
   Binoculars,
@@ -43,7 +44,7 @@ export function Sidebar() {
           <span>Explorar</span>
         </SidebarLink>
         {isAuthenticated && (
-          <SidebarLink href="/profile">
+          <SidebarLink href={`/profile/${randomBytes(16).toString("hex")}`}>
             <User size={24} />
             <span>Perfil</span>
           </SidebarLink>

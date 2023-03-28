@@ -14,5 +14,13 @@ export const RatingComponent = styled("div", {
         marginLeft: "auto",
       },
     },
+
+    error: {
+      true: {
+        svg: {
+          color: "$red100",
+        },
+      },
+    },
   },
 });

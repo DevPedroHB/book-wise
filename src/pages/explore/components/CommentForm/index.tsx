@@ -30,7 +30,7 @@ interface ICommentForm {
 }
 
 export function CommentForm({ setNewFormComment }: ICommentForm) {
-  const [rating, setRating] = useState(1);
+  const [rating, setRating] = useState(0);
   const {
     register,
     handleSubmit,
@@ -56,7 +56,7 @@ export function CommentForm({ setNewFormComment }: ICommentForm) {
     console.log(data);
 
     reset();
-    setRating(1);
+    setRating(0);
   }
 
   useEffect(() => {
@@ -72,7 +72,12 @@ export function CommentForm({ setNewFormComment }: ICommentForm) {
           altText="Avatar de DevPedroHB"
         />
         <h4>Pedro Henrique</h4>
-        <Rating starSize={28} rating={rating} setRating={setRating} />
+        <Rating
+          starSize={28}
+          rating={rating}
+          setRating={setRating}
+          error={!!errors.rating}
+        />
       </CommentFormHeader>
       <CommentFormWrapper
         onSubmit={handleSubmit(handleNewComment)}

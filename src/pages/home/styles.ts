@@ -10,6 +10,13 @@ export const HomeContent = styled("div", {
   padding: "4.5rem 6rem",
   overflowY: "scroll",
 
+  "&::-webkit-scrollbar": {
+    display: "none",
+  },
+
+  "-ms-overflow-style": "none",
+  "scrollbar-width": "none",
+
   "@bp2": {
     padding: "1.25rem 1.25rem 1.25rem 7.25rem",
   },

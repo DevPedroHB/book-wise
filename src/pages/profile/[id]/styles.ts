@@ -1,13 +1,13 @@
 import { styled } from "@/styles/stitches.config";
 
-export const ExploreContainer = styled("main", {
+export const ProfileContainer = styled("main", {
   display: "flex",
 });
 
-export const ExploreContent = styled("div", {
+export const ProfileContent = styled("div", {
   flex: 1,
   height: "100vh",
-  padding: "4.5rem 6rem",
+  padding: "4.5rem 4rem 4.5rem 6rem",
   overflowY: "scroll",
 
   "&::-webkit-scrollbar": {
@@ -22,7 +22,8 @@ export const ExploreContent = styled("div", {
   },
 });
 
-export const ExploreFormSearch = styled("form", {
-  maxWidth: "25rem",
-  width: "100%",
+export const ProfileWrapper = styled("div", {
+  flex: 1,
+  display: "flex",
+  flexWrap: "wrap-reverse",
 });

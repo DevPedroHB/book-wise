@@ -1,6 +1,7 @@
+import { Input } from "@/components/Input";
 import { PageTitle } from "@/components/PageTitle";
 import { Sidebar } from "@/components/Sidebar";
-import { Binoculars, MagnifyingGlass } from "phosphor-react";
+import { Binoculars } from "phosphor-react";
 import { Books } from "./components/Books";
 import { Categories } from "./components/Categories";
 import { ExploreContainer, ExploreContent, ExploreFormSearch } from "./styles";
@@ -16,10 +17,7 @@ export default function Explore() {
             Explorar
           </h2>
           <ExploreFormSearch>
-            <input type="search" placeholder="Buscar livro ou autor" />
-            <button>
-              <MagnifyingGlass size={20} />
-            </button>
+            <Input type="search" placeholder="Buscar livro ou autor" />
           </ExploreFormSearch>
         </PageTitle>
         <Categories />
