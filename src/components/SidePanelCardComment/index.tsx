@@ -1,3 +1,4 @@
+import { VariantProps } from "@stitches/react";
 import { Avatar } from "../Avatar";
 import { Rating } from "../Rating";
 import {
@@ -6,9 +7,11 @@ import {
   SidePanelCardCommentUser,
 } from "./styles";
 
-export function SidePanelCardComment() {
+type TSidePanelCardComment = VariantProps<typeof SidePanelCardCommentComponent>;
+
+export function SidePanelCardComment({ ...props }: TSidePanelCardComment) {
   return (
-    <SidePanelCardCommentComponent>
+    <SidePanelCardCommentComponent {...props}>
       <SidePanelCardCommentHeader>
         <Avatar
           avatarSize={40}
@@ -19,7 +22,7 @@ export function SidePanelCardComment() {
           <h4>Pedro Henrique</h4>
           <span>Há 2 dias</span>
         </SidePanelCardCommentUser>
-        <Rating starSize={16} marginLeft />
+        <Rating starSize={16} rating={5} />
       </SidePanelCardCommentHeader>
       <p>
         Nec tempor nunc in egestas. Euismod nisi eleifend at et in sagittis.

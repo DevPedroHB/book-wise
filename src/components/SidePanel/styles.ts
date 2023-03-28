@@ -143,6 +143,16 @@ export const SidePanelTitle = styled("div", {
       backgroundColor: "rgba(131, 129, 217, 0.06)",
     },
   },
+
+  variants: {
+    newFormComment: {
+      true: {
+        button: {
+          display: "none",
+        },
+      },
+    },
+  },
 });
 
 export const SidePanelComments = styled("div", {

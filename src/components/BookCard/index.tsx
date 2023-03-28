@@ -33,7 +33,7 @@ export function BookCard({ read, ...props }: IBookCard) {
               <h4>A revolução dos bichos</h4>
               <span>George Orwell</span>
             </BookCardTitle>
-            <Rating starSize={16} />
+            <Rating starSize={16} rating={4} />
           </BookCardDetails>
         </BookCardComponent>
       </Dialog.Trigger>

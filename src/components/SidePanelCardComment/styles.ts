@@ -11,6 +11,14 @@ export const SidePanelCardCommentComponent = styled("div", {
     color: "$gray300",
     fontSize: "$sm",
   },
+
+  variants: {
+    me: {
+      true: {
+        backgroundColor: "$gray600",
+      },
+    },
+  },
 });
 
 export const SidePanelCardCommentHeader = styled("div", {

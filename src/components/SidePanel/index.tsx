@@ -1,8 +1,11 @@
+import { CommentForm } from "@/pages/explore/components/CommentForm";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { BookmarkSimple, BookOpen, X } from "phosphor-react";
+import { useState } from "react";
 import { LoginModal } from "../LoginModal";
 import { Rating } from "../Rating";
+import { isAuthenticated } from "../Sidebar";
 import { SidePanelCardComment } from "../SidePanelCardComment";
 import {
   SidePanelAbout,
@@ -16,7 +19,11 @@ import {
   SidePanelTitle,
 } from "./styles";
 
+const myComment = [0];
+
 export function SidePanel() {
+  const [newFormComment, setNewFormComment] = useState(false);
+
   return (
     <Dialog.Portal>
       <SidePanelDialogOverlay />
@@ -35,7 +42,7 @@ export function SidePanel() {
                 <span>Zeno Rocha</span>
               </div>
               <div>
-                <Rating starSize={20} />
+                <Rating starSize={20} rating={3} />
                 <small>3 avaliações</small>
               </div>
             </SidePanelInfo>
@@ -60,18 +67,27 @@ export function SidePanel() {
         <SidePanelDialogClose>
           <X size={24} weight="bold" />
         </SidePanelDialogClose>
-        <SidePanelTitle>
+        <SidePanelTitle newFormComment={newFormComment}>
           <span>Avaliações</span>
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <button>Avaliar</button>
-            </Dialog.Trigger>
-            <LoginModal />
-          </Dialog.Root>
+          {isAuthenticated ? (
+            <button onClick={() => setNewFormComment(!newFormComment)}>
+              Avaliar
+            </button>
+          ) : (
+            <Dialog.Root>
+              <Dialog.Trigger asChild>
+                <button>Avaliar</button>
+              </Dialog.Trigger>
+              <LoginModal />
+            </Dialog.Root>
+          )}
         </SidePanelTitle>
         <SidePanelComments>
+          {newFormComment && (
+            <CommentForm setNewFormComment={setNewFormComment} />
+          )}
           {new Array(3).fill(true).map((_, i) => (
-            <SidePanelCardComment key={i} />
+            <SidePanelCardComment key={i} me={myComment.includes(i)} />
           ))}
         </SidePanelComments>
       </SidePanelDialogContent>

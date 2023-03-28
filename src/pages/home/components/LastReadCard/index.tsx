@@ -1,5 +1,5 @@
+import { Rating } from "@/components/Rating";
 import Image from "next/image";
-import { Star } from "phosphor-react";
 import {
   LastReadCardComponent,
   LastReadDetails,
@@ -21,13 +21,7 @@ export function LastReadCard() {
         <LastReadMainInfo>
           <LastReadMyInfo>
             <span>Há 2 dias</span>
-            <div>
-              <Star size={16} weight="fill" />
-              <Star size={16} weight="fill" />
-              <Star size={16} weight="fill" />
-              <Star size={16} weight="fill" />
-              <Star size={16} weight="thin" />
-            </div>
+            <Rating starSize={16} rating={1} />
           </LastReadMyInfo>
           <LastReadTitle>
             <h4>Entendendo Algoritmos</h4>
