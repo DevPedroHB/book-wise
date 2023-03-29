@@ -16,9 +16,26 @@ export const PageTitleComponent = styled("section", {
     justifyContent: "space-between",
     alignItems: "center",
     gap: "$3",
+
+    svg: {
+      color: "$green100",
+    },
   },
 
-  svg: {
-    color: "$green100",
+  button: {
+    padding: "$1 $2",
+    backgroundColor: "transparent",
+    color: "$gray200",
+    border: 0,
+    borderRadius: "4px",
+    fontWeight: "$bold",
+    display: "flex",
+    alignItems: "center",
+    gap: "$3",
+    transition: "background-color .2s",
+
+    "&:hover": {
+      backgroundColor: "rgba(131, 129, 217, 0.06)",
+    },
   },
 });

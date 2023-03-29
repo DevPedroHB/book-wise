@@ -27,3 +27,9 @@ export const ProfileWrapper = styled("div", {
   display: "flex",
   flexWrap: "wrap-reverse",
 });
+
+export const ProfileList = styled("div", {
+  marginTop: "$8",
+  display: "grid",
+  gap: "$6",
+});

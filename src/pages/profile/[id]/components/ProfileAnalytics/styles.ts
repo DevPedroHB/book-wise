@@ -14,6 +14,7 @@ export const ProfileAnalyticsComponent = styled("div", {
   "scrollbar-width": "none",
 
   "@bp2": {
+    height: "auto",
     padding: "1.25rem 1.25rem 1.25rem 7.25rem",
   },
 });
