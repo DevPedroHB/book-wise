@@ -45,11 +45,7 @@ export function CommentForm({ setNewFormComment }: ICommentForm) {
   function countCharacters() {
     const comment = watch("comment");
 
-    if (comment) {
-      return comment.match(/./g)!.length;
-    } else {
-      return 0;
-    }
+    return comment ? comment.match(/./g)!.length : 0;
   }
 
   function handleNewComment(data: CommentFormData) {

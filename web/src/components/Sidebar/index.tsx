@@ -1,5 +1,6 @@
 import logoResponsiveImg from "@/assets/images/logo-responsive.png";
 import logoImg from "@/assets/images/logo.png";
+import { useSidebar } from "@/hooks/useSidebar";
 import Image from "next/image";
 import {
   Binoculars,
@@ -8,7 +9,6 @@ import {
   SignIn,
   User,
 } from "phosphor-react";
-import { useState } from "react";
 import { Avatar } from "../Avatar";
 import { SidebarLink } from "../SidebarLink";
 import {
@@ -21,11 +21,11 @@ import {
 export const isAuthenticated = true;
 
 export function Sidebar() {
-  const [toggle, setToggle] = useState(false);
+  const { toggle, handleToggle } = useSidebar();
 
   return (
     <SidebarComponent toggle={toggle}>
-      <SidebarButtonToggle onClick={() => setToggle(!toggle)} toggle={toggle}>
+      <SidebarButtonToggle onClick={handleToggle} toggle={toggle}>
         <CaretRight size={16} weight="bold" />
       </SidebarButtonToggle>
       {toggle ? (

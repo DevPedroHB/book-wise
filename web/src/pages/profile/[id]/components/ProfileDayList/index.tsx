@@ -15,7 +15,7 @@ export function ProfileDayList() {
       <ProfileDayListDate>Há 2 dias</ProfileDayListDate>
       <ProfileDayListWrapper>
         {new Array(1).fill(true).map((_, i) => (
-          <ProfileDayListCard>
+          <ProfileDayListCard key={i}>
             <ProfileDayListCardHeader>
               <Image
                 src="/images/codigo-limpo.png"

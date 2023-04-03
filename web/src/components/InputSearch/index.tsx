@@ -1,16 +1,16 @@
 import { MagnifyingGlass } from "phosphor-react";
 import { InputHTMLAttributes } from "react";
-import { InputComponent } from "./styles";
+import { InputSearchComponent } from "./styles";
 
-type TInput = InputHTMLAttributes<HTMLInputElement>;
+type TInputSearch = InputHTMLAttributes<HTMLInputElement>;
 
-export function Input({ ...props }: TInput) {
+export function InputSearch({ ...props }: TInputSearch) {
   return (
-    <InputComponent>
+    <InputSearchComponent>
       <input {...props} />
       <button type="submit">
         <MagnifyingGlass size={20} />
       </button>
-    </InputComponent>
+    </InputSearchComponent>
   );
 }

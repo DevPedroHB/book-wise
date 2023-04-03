@@ -1,10 +1,10 @@
-import { Input } from "@/components/Input";
+import { InputSearch } from "@/components/InputSearch";
 import { PageTitle } from "@/components/PageTitle";
 import { Sidebar } from "@/components/Sidebar";
 import { Binoculars } from "phosphor-react";
 import { Books } from "./components/Books";
 import { Categories } from "./components/Categories";
-import { ExploreContainer, ExploreContent, ExploreFormSearch } from "./styles";
+import { ExploreContainer, ExploreContent, ExploreSearch } from "./styles";
 
 export default function Explore() {
   return (
@@ -16,9 +16,9 @@ export default function Explore() {
             <Binoculars size={32} />
             Explorar
           </h2>
-          <ExploreFormSearch>
-            <Input type="search" placeholder="Buscar livro ou autor" />
-          </ExploreFormSearch>
+          <ExploreSearch>
+            <InputSearch type="search" placeholder="Buscar livro ou autor" />
+          </ExploreSearch>
         </PageTitle>
         <Categories />
         <Books />

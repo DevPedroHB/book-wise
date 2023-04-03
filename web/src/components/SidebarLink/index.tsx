@@ -8,10 +8,14 @@ interface ISidebarLink extends LinkProps {
 }
 
 export function SidebarLink({ children, ...props }: ISidebarLink) {
-  const { pathname } = useRouter();
+  const regex = /\[([^/]+)\]/g;
+  const { pathname, query } = useRouter();
 
   return (
-    <SidebarLinkComponent {...props} active={props.href === pathname}>
+    <SidebarLinkComponent
+      {...props}
+      active={props.href === pathname.replace(regex, String(query.id))}
+    >
       {children}
     </SidebarLinkComponent>
   );

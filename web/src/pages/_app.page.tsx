@@ -1,3 +1,4 @@
+import SidebarContextProvider from "@/contexts/SidebarContext";
 import { globalStyles } from "@/styles/global";
 import { Nunito } from "@next/font/google";
 import type { AppProps } from "next/app";
@@ -12,8 +13,10 @@ const nunito = Nunito({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={nunito.className}>
-      <Component {...pageProps} />
-    </div>
+    <SidebarContextProvider>
+      <div className={nunito.className}>
+        <Component {...pageProps} />
+      </div>
+    </SidebarContextProvider>
   );
 }

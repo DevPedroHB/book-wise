@@ -22,7 +22,7 @@ export const ExploreContent = styled("div", {
   },
 });
 
-export const ExploreFormSearch = styled("form", {
+export const ExploreSearch = styled("div", {
   maxWidth: "25rem",
   width: "100%",
 });

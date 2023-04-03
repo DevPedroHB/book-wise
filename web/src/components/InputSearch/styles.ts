@@ -1,6 +1,6 @@
 import { styled } from "@/styles/stitches.config";
 
-export const InputComponent = styled("form", {
+export const InputSearchComponent = styled("form", {
   width: "100%",
   backgroundColor: "$gray800",
   border: "1px solid",
@@ -30,6 +30,10 @@ export const InputComponent = styled("form", {
     color: "$gray200",
     border: 0,
     lineHeight: 0,
+
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
   },
 
   svg: {

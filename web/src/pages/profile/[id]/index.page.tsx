@@ -1,6 +1,6 @@
-import { Input } from "@/components/Input";
+import { InputSearch } from "@/components/InputSearch";
 import { PageTitle } from "@/components/PageTitle";
-import { isAuthenticated, Sidebar } from "@/components/Sidebar";
+import { Sidebar, isAuthenticated } from "@/components/Sidebar";
 import { useRouter } from "next/router";
 import { CaretLeft, User } from "phosphor-react";
 import { ProfileAnalytics } from "./components/ProfileAnalytics";
@@ -33,7 +33,7 @@ export default function Profile() {
               </button>
             )}
           </PageTitle>
-          <Input type="search" placeholder="Buscar livro avaliado" />
+          <InputSearch type="search" placeholder="Buscar livro avaliado" />
           <ProfileList>
             {new Array(3).fill(true).map((_, i) => (
               <ProfileDayList />
