@@ -29,7 +29,10 @@ export default function Home() {
           <MyBooks>
             {isAuthenticated && (
               <>
-                <SectionTitle title="Sua última leitura" href="/profile" />
+                <SectionTitle
+                  title="Sua última leitura"
+                  href="/profile/DevPedroHB"
+                />
                 <CardGroup yourLastRead>
                   <LastReadCard />
                 </CardGroup>
