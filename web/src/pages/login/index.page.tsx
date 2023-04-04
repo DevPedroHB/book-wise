@@ -2,6 +2,7 @@ import HeroHomeImg from "@/assets/images/hero-home.png";
 import logoGitHubImg from "@/assets/images/logo-github.png";
 import logoGoogleImg from "@/assets/images/logo-google.png";
 import logoRocketLaunchImg from "@/assets/images/logo-rocket-launch.png";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { LoginContainer, LoginWrapper, Options, WelcomeText } from "./styles";
 
@@ -18,7 +19,7 @@ export default function Login() {
           <p>Faça seu login ou acesse como visitante.</p>
         </WelcomeText>
         <Options>
-          <button>
+          <button onClick={() => signIn("google")}>
             <Image src={logoGoogleImg} alt="Logotipo Google" />
             Entrar com Google
           </button>

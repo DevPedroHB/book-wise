@@ -1,6 +1,7 @@
 import logoResponsiveImg from "@/assets/images/logo-responsive.png";
 import logoImg from "@/assets/images/logo.png";
 import { useSidebar } from "@/hooks/useSidebar";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import {
   Binoculars,
@@ -22,6 +23,7 @@ export const isAuthenticated = true;
 
 export function Sidebar() {
   const { toggle, handleToggle } = useSidebar();
+  const { data } = useSession();
 
   return (
     <SidebarComponent toggle={toggle}>
@@ -42,25 +44,18 @@ export function Sidebar() {
           <Binoculars size={24} />
           <span>Explorar</span>
         </SidebarLink>
-        {isAuthenticated && (
+        {data && (
           <SidebarLink href="/profile/DevPedroHB">
             <User size={24} />
             <span>Perfil</span>
           </SidebarLink>
         )}
       </SidebarMenu>
-      <SidebarLogin
-        href="/login"
-        authenticated={isAuthenticated}
-        toggle={toggle}
-      >
-        {isAuthenticated ? (
+      <SidebarLogin href="/login" authenticated={!!data} toggle={toggle}>
+        {data ? (
           <>
-            <Avatar
-              avatarSize={32}
-              imgUrl="https://github.com/DevPedroHB.png"
-            />
-            <p>Pedro Henrique Bérgamo</p>
+            <Avatar avatarSize={32} imgUrl={data.user?.image} />
+            <p title={String(data.user?.name)}>{data.user?.name}</p>
           </>
         ) : (
           <span>Fazer login</span>

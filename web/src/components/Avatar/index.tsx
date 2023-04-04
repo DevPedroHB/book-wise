@@ -3,7 +3,7 @@ import { AvatarFallback, AvatarImage, AvatarRoot } from "./styles";
 
 interface IAvatar {
   avatarSize: number;
-  imgUrl?: string;
+  imgUrl?: string | null;
   altText?: string;
 }
 
@@ -14,7 +14,7 @@ export function Avatar({
 }: IAvatar) {
   return (
     <AvatarRoot css={{ "--avatar-size": `${avatarSize / 16}rem` }}>
-      <AvatarImage src={imgUrl} alt={altText} />
+      <AvatarImage src={imgUrl!} alt={altText} />
       <AvatarFallback>
         <User />
       </AvatarFallback>

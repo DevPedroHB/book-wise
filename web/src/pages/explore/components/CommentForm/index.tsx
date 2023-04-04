@@ -1,9 +1,9 @@
 import { Avatar } from "@/components/Avatar";
 import { Rating } from "@/components/Rating";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Check, X } from "phosphor-react";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Check, CircleNotch, X } from "phosphor-react";
+import { Dispatch, SetStateAction } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import {
   CommentFormAction,
@@ -13,10 +13,7 @@ import {
 } from "./styles";
 
 const CommentFormSchema = z.object({
-  rating: z
-    .number()
-    .min(1, "Avaliação obrigatória.")
-    .refine((val) => val > 0, "Avaliação obrigatória."),
+  rating: z.number().min(1, "Avaliação obrigatória."),
   comment: z
     .string()
     .min(3, "O comentário deve ter pelo menos 3 caracteres.")
@@ -29,15 +26,18 @@ interface ICommentForm {
   setNewFormComment: Dispatch<SetStateAction<boolean>>;
 }
 
+async function delay(ms: number) {
+  await new Promise((resolve) => setTimeout(resolve, ms * 1000));
+}
+
 export function CommentForm({ setNewFormComment }: ICommentForm) {
-  const [rating, setRating] = useState(0);
   const {
     register,
     handleSubmit,
+    control,
     reset,
     watch,
-    setValue,
-    formState: { errors, isSubmitting, isValidating },
+    formState: { errors, isSubmitting },
   } = useForm<CommentFormData>({
     resolver: zodResolver(CommentFormSchema),
   });
@@ -48,16 +48,14 @@ export function CommentForm({ setNewFormComment }: ICommentForm) {
     return comment ? comment.match(/./g)!.length : 0;
   }
 
-  function handleNewComment(data: CommentFormData) {
+  async function handleNewComment(data: CommentFormData) {
+    await delay(2);
+
     console.log(data);
 
     reset();
-    setRating(0);
+    setNewFormComment(false);
   }
-
-  useEffect(() => {
-    setValue("rating", rating);
-  }, [rating]);
 
   return (
     <CommentFormComponent>
@@ -68,11 +66,19 @@ export function CommentForm({ setNewFormComment }: ICommentForm) {
           altText="Avatar de DevPedroHB"
         />
         <h4>Pedro Henrique</h4>
-        <Rating
-          starSize={28}
-          rating={rating}
-          setRating={setRating}
-          error={!!errors.rating}
+        <Controller
+          name="rating"
+          control={control}
+          render={({ field }) => {
+            return (
+              <Rating
+                starSize={28}
+                rating={field.value}
+                error={!!errors.rating}
+                onChange={(rating) => field.onChange(rating)}
+              />
+            );
+          }}
         />
       </CommentFormHeader>
       <CommentFormWrapper
@@ -84,12 +90,16 @@ export function CommentForm({ setNewFormComment }: ICommentForm) {
           {...register("comment")}
         ></textarea>
         <span>{countCharacters()}/450</span>
-        <CommentFormAction>
+        <CommentFormAction isSubmitting={isSubmitting}>
           <button type="button" onClick={() => setNewFormComment(false)}>
             <X size={24} color="#8381D9" weight="bold" />
           </button>
           <button type="submit" disabled={isSubmitting}>
-            <Check size={24} color="#50B2C0" weight="bold" />
+            {isSubmitting ? (
+              <CircleNotch size={24} color="#50B2C0" weight="bold" />
+            ) : (
+              <Check size={24} color="#50B2C0" weight="bold" />
+            )}
           </button>
         </CommentFormAction>
       </CommentFormWrapper>

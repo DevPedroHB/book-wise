@@ -1,4 +1,13 @@
-import { styled } from "@/styles/stitches.config";
+import { keyframes, styled } from "@/styles/stitches.config";
+
+const spin = keyframes({
+  from: {
+    transform: "rotate(0deg)",
+  },
+  to: {
+    transform: "rotate(360deg)",
+  },
+});
 
 export const CommentFormComponent = styled("div", {
   padding: "$6",
@@ -80,8 +89,25 @@ export const CommentFormAction = styled("div", {
     lineHeight: 0,
     transition: "background-color .2s",
 
-    "&:hover": {
+    "&:disabled": {
+      opacity: 0.5,
+      cursor: "not-allowed",
+    },
+
+    "&:not(:disabled):hover": {
       backgroundColor: "$gray500",
+    },
+  },
+
+  variants: {
+    isSubmitting: {
+      true: {
+        "button[type=submit]": {
+          svg: {
+            animation: `${spin} 700ms infinite linear`,
+          },
+        },
+      },
     },
   },
 });

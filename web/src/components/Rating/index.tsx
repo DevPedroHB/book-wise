@@ -1,15 +1,14 @@
 import { VariantProps } from "@stitches/react";
 import { Star } from "phosphor-react";
-import { Dispatch, SetStateAction } from "react";
 import { RatingComponent } from "./styles";
 
 interface IRating extends VariantProps<typeof RatingComponent> {
   starSize: number;
   rating: number;
-  setRating?: Dispatch<SetStateAction<number>>;
+  onChange?: (rating: number) => void;
 }
 
-export function Rating({ starSize, rating, setRating, ...props }: IRating) {
+export function Rating({ starSize, rating, onChange, ...props }: IRating) {
   return (
     <RatingComponent {...props}>
       {[1, 2, 3, 4, 5].map((starIndex) => (
@@ -17,7 +16,7 @@ export function Rating({ starSize, rating, setRating, ...props }: IRating) {
           key={starIndex}
           size={starSize}
           weight={rating >= starIndex ? "fill" : "regular"}
-          onClick={() => (setRating ? setRating(starIndex) : null)}
+          onClick={() => (onChange ? onChange(starIndex) : null)}
         />
       ))}
     </RatingComponent>
