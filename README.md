@@ -27,14 +27,10 @@
 
 Here are the technologies used in this project.
 
-- Global:
-
-  - TypeScript 5.0.2
-
-- Web:
-  - React 18.2.0
-  - NextJS 13.2.4
-  - Stitches 1.2.8
+- TypeScript 5.0.2
+- React 18.2.0
+- NextJS 13.2.4
+- Stitches 1.2.8
 
 ## 📋 Services
 
@@ -47,13 +43,12 @@ Here are the services used in this project.
 
 Here are the packages used in this project.
 
-- Web:
-  - @hookform/resolvers -> Used in conjunction with the "react-hook-form" package to validate forms.
-  - @radix-ui -> Used to provide pre-built components for React applications.
-  - next-seo -> Used to optimize the SEO of applications developed with the Next.js framework.
-  - phosphor-react -> Library with various icon providers for react.
-  - react-hook-form -> Used to validate and manage forms.
-  - zod -> Used for data validation.
+- @hookform/resolvers -> Used in conjunction with the "react-hook-form" package to validate forms.
+- @radix-ui -> Used to provide pre-built components for React applications.
+- next-seo -> Used to optimize the SEO of applications developed with the Next.js framework.
+- phosphor-react -> Library with various icon providers for react.
+- react-hook-form -> Used to validate and manage forms.
+- zod -> Used for data validation.
 
 ## 💻 Getting started
 
