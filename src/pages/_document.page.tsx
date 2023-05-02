@@ -5,6 +5,7 @@ export default function Document() {
   return (
     <Html lang="pt-BR">
       <Head>
+        <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
         <style
           id="stitches"
           dangerouslySetInnerHTML={{ __html: getCssText() }}

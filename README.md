@@ -44,7 +44,12 @@ Here are the services used in this project.
 Here are the packages used in this project.
 
 - @hookform/resolvers -> Used in conjunction with the "react-hook-form" package to validate forms.
+- @prisma/client -> Used to create and interact with databases in the application.
 - @radix-ui -> Used to provide pre-built components for React applications.
+- @tanstack/react-query -> Used to fetch and cache data in React applications.
+- axios -> Used to make HTTP requests in JavaScript applications.
+- dayjs -> Used as a date and time manipulation library.
+- next-auth -> Used to implement authentication in applications developed with Next.js framework.
 - next-seo -> Used to optimize the SEO of applications developed with the Next.js framework.
 - phosphor-react -> Library with various icon providers for react.
 - react-hook-form -> Used to validate and manage forms.
